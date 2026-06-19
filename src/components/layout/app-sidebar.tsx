@@ -42,12 +42,12 @@ export function AppSidebar() {
             <SidebarMenu>
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild tooltip={item.title}>
+                  <SidebarMenuButton tooltip={item.title} render={
                     <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
                     </Link>
-                  </SidebarMenuButton>
+                  } />
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
@@ -57,20 +57,20 @@ export function AppSidebar() {
       <SidebarFooter className="border-t dark:border-zinc-800 p-4">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild>
+            <SidebarMenuButton render={
               <Link href="/dashboard/settings">
                 <Settings />
                 <span>Settings</span>
               </Link>
-            </SidebarMenuButton>
+            } />
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild className="text-red-500 hover:text-red-600">
+            <SidebarMenuButton className="text-red-500 hover:text-red-600" render={
               <button>
                 <LogOut />
                 <span>Log out</span>
               </button>
-            </SidebarMenuButton>
+            } />
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>

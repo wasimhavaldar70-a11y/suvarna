@@ -82,11 +82,11 @@ export function CreateLoanDialog({ customers }: { customers: any[] }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger render={
         <Button>
           <Plus className="mr-2 h-4 w-4" /> Create Loan
         </Button>
-      </DialogTrigger>
+      } />
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>Create New Loan</DialogTitle>

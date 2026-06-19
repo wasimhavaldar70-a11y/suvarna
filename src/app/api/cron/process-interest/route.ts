@@ -56,15 +56,16 @@ export async function GET(request: Request) {
         invoicesCreated++
         
         // MOCK WHATSAPP REMINDER
-        const customerPhone = loan.customers?.mobile_number
-        const customerName = loan.customers?.full_name
+        const customer = Array.isArray(loan.customers) ? loan.customers[0] : loan.customers
+        const customerPhone = (customer as any)?.mobile_number
+        const customerName = (customer as any)?.full_name
         
         console.log(`[MOCK WHATSAPP API] Message sent to ${customerPhone}`)
         console.log(`[MOCK WHATSAPP API] "Dear ${customerName}, your monthly interest payment of Rs.${monthlyInterest} for Loan ${loan.loan_number} is due on ${dueDate.toLocaleDateString()}. Please visit our shop."`)
         
         // Save to reminders table
         await supabase.from("reminders").insert([{
-          customer_id: loan.customers?.id,
+          customer_id: (customer as any)?.id,
           reminder_type: "WhatsApp",
           status: "Sent",
           sent_at: new Date().toISOString()

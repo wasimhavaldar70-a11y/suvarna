@@ -67,12 +67,12 @@ export function DownloadButton({ reportData }: { reportData: any }) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger render={
         <Button variant="outline">
           <FileDown className="mr-2 h-4 w-4" />
           Export Report
         </Button>
-      </DropdownMenuTrigger>
+      } />
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={downloadCSV}>
           <FileSpreadsheet className="mr-2 h-4 w-4" />

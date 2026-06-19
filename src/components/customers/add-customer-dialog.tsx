@@ -76,11 +76,11 @@ export function AddCustomerDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger render={
         <Button>
           <Plus className="mr-2 h-4 w-4" /> Add Customer
         </Button>
-      </DialogTrigger>
+      } />
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Add Customer</DialogTitle>
